@@ -13,4 +13,10 @@
     <name>Openjds - Common lib</name>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+        </dependency>
+    </dependencies>
 </project>
