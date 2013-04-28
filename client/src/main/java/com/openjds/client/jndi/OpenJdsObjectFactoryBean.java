@@ -52,22 +52,21 @@ public class OpenJdsObjectFactoryBean implements ObjectFactory {
             if (refAddr != null) {
                 final String type = refAddr.getType();
                 final Object content = refAddr.getContent();
-                switch (type){
-                    case RMI_SERVER_CONFIG_NAME:
-                        rmiUrl = (String) content;
-                        break;
-                    case ENVIRONMENT_CONFIG_NAME:
-                        environmentName = (String) content;
-                        break;
-                    case ADDITIONAL_PROPS_NAME:
-                        properties = (String) content;
-                        break;
-                    case TOKENS_CONFIG_NAME:
-                        final String tmp = ((String) content);
-                        if (tmp != null){
-                            tokens = tmp.split(SEPARATOR);
-                        }
-                        break;
+
+                if (RMI_SERVER_CONFIG_NAME.equals(type)) {
+                    rmiUrl = (String) content;
+                }
+                else if (ENVIRONMENT_CONFIG_NAME.equals(type)) {
+                    environmentName = (String) content;
+                }
+                else if (ADDITIONAL_PROPS_NAME.equals(type)) {
+                    properties = (String) content;
+                }
+                else if (TOKENS_CONFIG_NAME.equals(type)) {
+                    final String tmp = ((String) content);
+                    if (tmp != null){
+                        tokens = tmp.split(SEPARATOR);
+                    }
                 }
             }
         }
